@@ -15,3 +15,8 @@ Selecting different items by using the keyboard or in code behind have no effect
 
 You can click the `New Window` button to try this multiple times.
 
+## Demo video
+
+<video>
+    <source src="combobox-demo.mp4">
+</video>
