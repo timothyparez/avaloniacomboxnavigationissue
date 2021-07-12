@@ -18,3 +18,10 @@ You can click the `New Window` button to try this multiple times.
 ## Demo video
 
 <img src="combobox-demo.gif"/>
+
+
+## Alternative Implementation
+
+For those who are trying to do something similar  
+and cannot wait for this issue to be fixed, the `feature/workaround` branch  
+contains an alternative solution. It adds some complexity but it works.
