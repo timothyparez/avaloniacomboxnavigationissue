@@ -17,6 +17,4 @@ You can click the `New Window` button to try this multiple times.
 
 ## Demo video
 
-<video>
-    <source src="combobox-demo.mp4">
-</video>
+<img src="combobox-demo.gif"/>
