@@ -1,0 +1,28 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ComboBoxNavigationIssue.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ComboBoxNavigationIssue.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="ComboBoxNavigationIssue">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid Grid.RowDefinitions="Auto, *">
+        <ComboBox Name="SelectedViewModelBox" SelectedIndex="0">
+            <ComboBox.Items>
+                <ComboBoxItem DataContext="{Binding ProductsViewModel}" Content="Products" />
+                <ComboBoxItem DataContext="{Binding CustomersViewModel}" Content="Customers"/>
+                <ComboBoxItem DataContext="{Binding SettingsViewModel}" Content="Settings"/>                
+            </ComboBox.Items>
+        </ComboBox>
+        <Button HorizontalAlignment="Right" Click="ButtonClicked" Content="New Window"/>             
+                      
+        <ContentControl Content="{Binding #SelectedViewModelBox.SelectedItem.DataContext}" Grid.Row="1"/>
+    </Grid>
+
+</Window>
