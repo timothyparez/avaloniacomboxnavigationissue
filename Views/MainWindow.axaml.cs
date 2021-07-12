@@ -19,8 +19,14 @@ namespace ComboBoxNavigationIssue.Views
             this.WhenActivated(d =>
             {
                 //This also has no effect:
-                this.FindControl<ComboBox>("SelectedViewModelBox").SelectedIndex = -1;
+                var comboBox = this.FindControl<ComboBox>("SelectedViewModelBox");
+
+                comboBox.Focus();
+                this.Focus();
+                comboBox.Focus();
+                comboBox.SelectedIndex = -1;
                 this.FindControl<ComboBox>("SelectedViewModelBox").SelectedIndex = 0;
+                this.FindControl<ComboBox>("SelectedViewModelBox").Focus();
             });
 
         }

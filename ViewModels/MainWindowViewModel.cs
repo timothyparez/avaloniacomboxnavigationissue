@@ -1,26 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using ReactiveUI.Fody.Helpers;
 
 namespace ComboBoxNavigationIssue.ViewModels
 {
+
     public class MainWindowViewModel : ViewModelBase
-    {        
+    {             
         [Reactive]
-        public ProductsViewModel ProductsViewModel {get; set;}
+        public ComboBoxItemViewModel? SelectedViewModel {get; set;}
 
         [Reactive]
-        public CustomersViewModel CustomersViewModel {get; set;}
-
-        [Reactive]
-        public SettingsViewModel SettingsViewModel {get; set;}
+        public ObservableCollection<ComboBoxItemViewModel> AvailableViewModels {get; private set;}
 
         public MainWindowViewModel()
         {
-            ProductsViewModel = new ProductsViewModel();
-            CustomersViewModel = new CustomersViewModel();
-            SettingsViewModel = new SettingsViewModel();
+            AvailableViewModels = new ObservableCollection<ComboBoxItemViewModel>()
+            {                
+                new ComboBoxItemViewModel("Products", new ProductsViewModel()),
+                new ComboBoxItemViewModel("Customers", new CustomersViewModel()),
+                new ComboBoxItemViewModel("Settings", new SettingsViewModel())
+            };                   
         }
     }
 }

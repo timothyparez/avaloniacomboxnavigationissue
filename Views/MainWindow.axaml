@@ -13,16 +13,9 @@
     </Design.DataContext>
 
     <Grid Grid.RowDefinitions="Auto, *">
-        <ComboBox Name="SelectedViewModelBox" SelectedIndex="0">
-            <ComboBox.Items>
-                <ComboBoxItem DataContext="{Binding ProductsViewModel}" Content="Products" />
-                <ComboBoxItem DataContext="{Binding CustomersViewModel}" Content="Customers"/>
-                <ComboBoxItem DataContext="{Binding SettingsViewModel}" Content="Settings"/>                
-            </ComboBox.Items>
-        </ComboBox>
-        <Button HorizontalAlignment="Right" Click="ButtonClicked" Content="New Window"/>             
-                      
-        <ContentControl Content="{Binding #SelectedViewModelBox.SelectedItem.DataContext}" Grid.Row="1"/>
+        <ComboBox Name="SelectedViewModelBox" Items="{Binding AvailableViewModels}" SelectedItem="{Binding SelectedViewModel}"/>                    
+        <Button HorizontalAlignment="Right" Click="ButtonClicked" Content="New Window"/>                                   
+        <ContentControl Content="{Binding SelectedViewModel.ContentViewModel}" Grid.Row="1"/>
     </Grid>
 
 </Window>
